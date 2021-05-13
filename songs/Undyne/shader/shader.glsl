@@ -153,7 +153,7 @@ void Rotate( inout vec3 vector, vec2 angle )
 
 void main()
 {
-    vec4 colOut = vec4(0.);;
+    vec4 colOut = vec4(0.);
     
     vec2 fragCoordRot;
     fragCoordRot.x = gl_FragCoord.x*0.985 + gl_FragCoord.y * 0.174;

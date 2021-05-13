@@ -19,7 +19,7 @@ impl MainMenu {
 
         egui_macroquad::ui(|ctx| {
             egui::SidePanel::left("side_panel", 200.0).show(ctx, |ui| {
-                ui.heading("Shitty rythm game");
+                ui.heading("Shitty rhythm game");
 
                 ui.label("Levels");
 
