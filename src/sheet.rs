@@ -53,7 +53,18 @@ impl Token {
 pub fn parse_tokes(source: &str) -> Result<Vec<Token>> {
     let mut tokens = Vec::new();
 
-    for s in source.split_whitespace() {
+    let iter = source
+        .split("\n")
+        .filter_map(|iter| {
+            if iter.starts_with("//") {
+                None
+            } else {
+                Some(iter.split_whitespace())
+            }
+        })
+        .flatten();
+
+    for s in iter {
         tokens.push(Token::parse(s)?);
     }
 
@@ -125,12 +136,8 @@ impl Sheet {
         sheet.parse_bpm(&mut tokens)?;
         sheet.parse_offset(&mut tokens)?;
 
-        let mut start = sheet.start_offset;
-
         while tokens.len() > 0 {
-            let projectile = Projectile::parse(&mut tokens, sheet.bpm, start)?;
-
-            start = projectile.arrival_time;
+            let projectile = Projectile::parse(&mut tokens, sheet.bpm, sheet.start_offset)?;
 
             sheet.projectiles.push(projectile);
         }
@@ -163,9 +170,15 @@ impl Sheet {
             let offset = tokens.next_token()?;
 
             if let Token::Number(offset) = offset {
-                self.start_offset = offset;
+                let time_offset = tokens.next_token()?;
 
-                Ok(())
+                if let Token::TimeOffset(time_offset) = time_offset {
+                    self.start_offset = offset + time_offset.time(self.bpm);
+
+                    Ok(())
+                } else {
+                    Err(ParseError::UnexpectedToken(time_offset))
+                }
             } else {
                 Err(ParseError::UnexpectedToken(offset))
             }

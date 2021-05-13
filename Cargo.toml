@@ -8,3 +8,5 @@ edition = "2018"
 
 [dependencies]
 macroquad = "0.3"
+egui-macroquad = "0.4"
+egui = "0.12"
