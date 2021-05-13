@@ -191,3 +191,63 @@ norm R 2;2|39
 norm U 0;3|39
 norm D 2;3|39
 norm L 0;0|40
+
+norm R 0;2|41
+norm L 0;3|41
+
+norm R 0;0|44
+norm D 3;0|44
+norm U 2;1|44
+norm L 0;2|44
+
+norm D 0;0|45
+norm U 2;0|45
+norm R 0;1|45
+
+norm D 0;3|45
+norm U 2;3|45
+norm L 0;0|46
+
+norm D 0;2|47
+norm R 2;2|47
+norm U 0;3|47
+norm D 2;3|47
+norm L 0;0|48
+
+norm R 0;0|50
+norm R 1;0|50
+norm R 2;0|50
+norm R 3;0|50
+norm R 0;1|50
+norm R 1;1|50
+norm R 2;1|50
+norm R 3;1|50
+norm R 0;2|50
+norm U 2;2|50
+norm U 3;2|50
+norm U 0;3|50
+norm L 2;3|50
+norm L 3;3|50
+norm L 0;0|51
+
+norm R 0;0|52
+norm D 3;0|52
+norm U 2;1|52
+norm L 0;2|52
+
+norm D 0;0|53
+norm U 2;0|53
+norm R 0;1|53
+
+norm D 0;3|53
+norm U 2;3|53
+norm L 0;0|54
+
+norm D 0;2|55
+norm R 2;2|55
+norm U 0;3|55
+norm D 2;3|55
+norm L 0;0|56
+
+norm R 0;2|57
+norm L 0;3|57
